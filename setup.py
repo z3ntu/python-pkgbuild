@@ -1,10 +1,10 @@
 from distutils.core import setup
 
 setup(
-    name='pyPKGBUILD',
+    name='python-pkgbuild',
     version='1.0',
-    packages=['pyPKGBUILD'],
-    url='https://github.com/z3ntu/pyPKGBUILD',
+    packages=[''],
+    url='https://github.com/z3ntu/python-pkgbuild',
     license='MIT',
     author='Luca Weiss',
     author_email='WEI16416@spengergasse.at',
