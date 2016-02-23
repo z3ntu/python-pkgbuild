@@ -22,4 +22,4 @@ display system information with a bar."], "url": "https://github.com/SirCmpwn/sw
 ```
 python setup.py install
 ```
-It is also available in the [AUR](https://aur.archlinux.org/packages/python-pkgbuild)
+It is also available in the [AUR](https://aur.archlinux.org/packages/python-pkgbuild-git).
