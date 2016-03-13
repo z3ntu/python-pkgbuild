@@ -52,7 +52,7 @@ def parse_source_field(source_text, source_parts):
     elif source_parts is SourceParts.url:
         if "#" in source_text:
             return re.search('(?:.*\+)?(.+?)#', source_text).group(1)  # TODO: Make simpler without if
-        return re.search('(?:.*\+)?(.+?)', source_text).group(1)
+        return re.search('(?:.*\+)?(.*)', source_text).group(1)
     elif source_parts is SourceParts.fragment:
         if "#" in source_text:
             return re.search('#(.*)', source_text).group(1)

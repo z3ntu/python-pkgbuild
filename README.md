@@ -3,9 +3,9 @@ Python library to parse pacman's .SRCINFO file
 
 ## Usage
 ```
->>> from pkgbuild import SRCINFO
+>>> import pkgbuild
 >>> import json
->>> srcinfo = SRCINFO("/path/to/.SRCINFO")
+>>> srcinfo = pkgbuild.SRCINFO("/path/to/.SRCINFO")
 >>> json.dumps(srcinfo.content)
 '{"pkgrel": "1", "options": ["debug", "!strip"], "pkgbase": "sway-git", "license": "MIT", 
 "pkgname": "sway-git", "makedepends": ["cmake", "git", "asciidoc"], "optdepends": 
@@ -16,10 +16,14 @@ display system information with a bar."], "url": "https://github.com/SirCmpwn/sw
 "sway::git+https://github.com/SirCmpwn/sway.git", "sha1sums": "SKIP", "pkgver": "r1302.016a774", 
 "depends": ["wlc-git", "xorg-server-xwayland", "xcb-util-image", "json-c", "pango", "cairo", 
 "wayland", "gdk-pixbuf2"]}'
+>>> print(srcinfo.content.get("license"))
+MIT
+>>> print(pkgbuild.parse_source_field(srcinfo.content.get("source"), pkgbuild.SourceParts.vcs))
+git
 ```
 
 ## Installation
 ```
 python setup.py install
 ```
-It is also available in the [AUR](https://aur.archlinux.org/packages/python-pkgbuild)
+It is also available in the [AUR](https://aur.archlinux.org/packages/python-pkgbuild).
