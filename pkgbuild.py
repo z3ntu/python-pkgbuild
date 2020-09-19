@@ -32,6 +32,21 @@ class SRCINFO:
                     return_dict[key].append(value)  # append to array
         self.content = return_dict
 
+    def getcontent(self):
+        return self.content
+
+    def getrundeps(self):
+        rundeps = self.getcontent().get('depends')
+        return rundeps if not rundeps is None else []
+
+    def getmakedeps(self):
+        makedeps = self.getcontent().get('makedepends')
+        return makedeps if not makedeps is None else []
+
+    def getcheckdeps(self):
+        checkdeps = self.getcontent().get('checkdepends')
+        return checkdeps if not checkdeps is None else []
+
 
 def parse_source_field(source_text, source_parts):
     """
