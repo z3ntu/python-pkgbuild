@@ -8,14 +8,21 @@ SourceParts = Enum('SourceParts', 'folder vcs url fragment')
 
 
 class SRCINFO:
-    def __init__(self, filepath):
+    def __init__(self, filepath=None, content=None):
         """
         Parses and holds data of a .SRCINFO file.
         ;param filepath: Path to a .SRCINFO file
+        ;param content: Content of a .SRCINFO file as string
         Access the data with the object 'content'
         """
         return_dict = defaultdict(list)
-        for line in open(filepath, 'r'):
+
+        if filepath:
+            file = open(filepath, 'r')
+        else:
+            file = content.splitlines(keepends=True)
+
+        for line in file:
             if line.startswith("#") or line == "\n":  # ignore commented or empty lines
                 continue
             line = line.replace('\n', '')  # remove newlines and tabs
